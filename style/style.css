@@ -1,13 +1,18 @@
 @use 'reset';
-@use 'variables';
+@use 'variables' as *;
 body {
-  background-color: #797979;
+  height: 60vh;
   color: #cfcfcf;
+  background-color: #e9e4d7;
 }
 
 div {
-  line-height: 15px;
   margin-bottom: 3px;
   text-align: end;
+  line-height: 15px;
+}
+
+div rect:hover {
+  fill: black;
 }
 /*# sourceMappingURL=style.css.map */

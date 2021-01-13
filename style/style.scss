@@ -1,12 +1,17 @@
 @use 'reset';
-@use 'variables';
+@use 'variables' as *;
 
 body {
-  background-color: #797979;
-  color: #cfcfcf;
+  height: 60vh;
+  background-color: $gray;
 }
+
 div {
-  line-height: 15px;
   margin-bottom: 3px;
   text-align: end;
+  line-height: 15px;
+
+  rect:hover {
+    fill: $black;
+  }
 }

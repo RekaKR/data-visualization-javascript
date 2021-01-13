@@ -1,11 +1,16 @@
 function pageLoaded() {
   // set the dimensions and margins of the graph
-  var margin = { top: 10, right: 30, bottom: 90, left: 40 },
-    width = 20000 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+  let margin = {
+    top: 50,
+    right: 30,
+    bottom: 55,
+    left: 40
+  },
+    width = 35000 - margin.left - margin.right,
+    height = 750 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
-  var svg = d3
+  let svg = d3
     .select("#root")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -15,14 +20,13 @@ function pageLoaded() {
 
   // Parse the Data
   d3.csv("/CSV/snakes_count_1000.csv", function (data) {
-    console.log(data);
     let maxi = [];
     for (let i = 0; i < data.length; i++) {
       maxi.push(data[i].GameLength);
     }
-    console.log(Math.max(...maxi));
+
     // X axis
-    var x = d3
+    let x = d3
       .scaleBand()
       .range([0, width])
       .domain(
@@ -31,6 +35,7 @@ function pageLoaded() {
         })
       )
       .padding(0.2);
+
     svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -40,7 +45,7 @@ function pageLoaded() {
       .style("text-anchor", "end");
 
     // Add Y axis
-    var y = d3
+    let y = d3
       .scaleLinear()
       .domain([0, Math.max(...maxi)])
       .range([height, 0]);
@@ -56,7 +61,7 @@ function pageLoaded() {
         return x(d.GameNumber);
       })
       .attr("width", x.bandwidth())
-      .attr("fill", "orange")
+      .attr("fill", "rgb(237, 167, 1)")
       // no bar at the beginning thus:
       .attr("height", function (d) {
         return height - y(0);
@@ -77,8 +82,7 @@ function pageLoaded() {
         return height - y(d.GameLength);
       })
       .delay(function (d, i) {
-        console.log(i);
-        return i * 100;
+        return i * 50;
       });
   });
 }
