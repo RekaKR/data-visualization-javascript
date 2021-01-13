@@ -1,12 +1,13 @@
 @use 'reset';
 @use 'variables';
-
 body {
   background-color: #797979;
   color: #cfcfcf;
 }
+
 div {
   line-height: 15px;
   margin-bottom: 3px;
   text-align: end;
 }
+/*# sourceMappingURL=style.css.map */
