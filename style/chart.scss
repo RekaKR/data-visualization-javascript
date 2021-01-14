@@ -1,0 +1,18 @@
+@use 'reset';
+@use 'variables' as *;
+
+body {
+  height: 60vh;
+  background-color: $gray;
+  overflow: hidden;
+}
+
+div {
+  margin-bottom: 3px;
+  text-align: end;
+  line-height: 15px;
+
+  rect:hover {
+    fill: $black;
+  }
+}
