@@ -5,13 +5,84 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-nav {
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ececec;
+}
+body h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 400;
+  font-size: 2rem;
+}
+body p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 400;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+header {
   width: 100%;
   height: 80px;
-  background-color: black;
+  background-color: #eda701;
+  display: flex;
   position: fixed;
+}
+header h1 {
+  margin: auto;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+@media (max-width: 510px) {
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+main {
+  height: calc(100vh - 40px);
+  padding: 5%;
+  padding-top: 80px;
+  position: absolute;
+  animation: page2-animation 2s ease-out;
+}
+main div {
+  width: 65%;
+  margin: auto;
+  margin-top: 5%;
+}
+main div:first-child p {
+  margin-top: 1em;
+}
+main div:nth-child(2) p {
+  margin-top: 0em;
+  text-align: center;
+}
+
+@keyframes page2-animation {
+  0% {
+    padding-top: 500px;
+  }
+  100% {
+    padding-top: 80px;
+  }
+}
+footer {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translate(-50%);
+}
+footer p {
+  font-size: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
