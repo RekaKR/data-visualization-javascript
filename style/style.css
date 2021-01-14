@@ -1,13 +1,52 @@
-@use 'reset';
-@use 'variables';
-body {
-  background-color: #797979;
-  color: #cfcfcf;
+*,
+body,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-div {
-  line-height: 15px;
-  margin-bottom: 3px;
-  text-align: end;
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.y > text:nth-child(12) {
+  display: none;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  width: 400px;
+  background-color: #f7f7f7;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.bar {
+  fill: #eda701;
+  fill-opacity: 0.8;
 }
 /*# sourceMappingURL=style.css.map */

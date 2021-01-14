@@ -2,7 +2,7 @@ function pageLoaded() {
   // set the dimensions and margins of the graph
   var margin = { top: 10, right: 30, bottom: 90, left: 40 },
     width = 20000 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+    height = 1000 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3
@@ -13,15 +13,21 @@ function pageLoaded() {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  const sorting = document.querySelector("#sort");
   // Parse the Data
   d3.csv("/CSV/snakes_count_1000.csv", function (data) {
-    console.log(data);
+    console.log(typeof data[1].GameLength);
     let maxi = [];
     for (let i = 0; i < data.length; i++) {
       maxi.push(data[i].GameLength);
     }
-    console.log(Math.max(...maxi));
     // X axis
+
+    data.sort(function (a, b) {
+      console.log(a.GameLength, b.GameLength);
+      return d3.descending(parseInt(a.GameLength), parseInt(b.GameLength));
+    });
+
     var x = d3
       .scaleBand()
       .range([0, width])
@@ -65,6 +71,7 @@ function pageLoaded() {
         return y(0);
       });
 
+    // svg.selectAll("p").data(data).enter().append("p").p("co");
     // Animation
     svg
       .selectAll("rect")
@@ -78,7 +85,7 @@ function pageLoaded() {
       })
       .delay(function (d, i) {
         console.log(i);
-        return i * 100;
+        return i * 10;
       });
   });
 }

@@ -1,12 +1,47 @@
-@use 'reset';
-@use 'variables';
+@import "reset";
+@import "variables";
+
+// body {
+//   background-color: #797979;
+//   color: #cfcfcf;
+// }
+// div {
+//   line-height: 15px;
+//   margin-bottom: 3px;
+//   text-align: end;
+// }
+.y > text:nth-child(12) {
+  display: none;
+}
 
 body {
-  background-color: #797979;
-  color: #cfcfcf;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  width: 400px;
+  background-color: $gray;
 }
-div {
-  line-height: 15px;
-  margin-bottom: 3px;
-  text-align: end;
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.bar {
+  fill: rgb(237, 167, 1);
+  fill-opacity: 0.8;
 }
