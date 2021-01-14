@@ -8,25 +8,62 @@ body,
 }
 
 a {
-  color: black;
+  color: #eda701;
   text-decoration: none;
+}
+
+body {
+  width: 400px;
+  background-color: #f7f7f7;
+  font-family: "Montserrat", sans-serif;
+  font-size: 400;
+  position: relative;
+}
+body label {
+  color: #eda701;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 400;
+  font-size: 40px;
+  position: relative;
+  top: 30px;
+  left: 66px;
+}
+body label input {
+  background-color: none;
+  opacity: 1;
+  position: absolute;
+  top: 16px;
+  left: -30px;
+  transform: scale(2);
+  cursor: pointer;
+  display: block;
+}
+body label input:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #FFF;
+  border: 1px solid #eda701;
+  display: block;
+  position: relative;
+}
+body label input:checked:after {
+  content: "X";
+  color: #eda701;
+  font-size: 18px;
+  position: absolute;
+  top: calc(50% + 1px);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .y > text:nth-child(12) {
   display: none;
 }
 
-body {
-  width: 400px;
-  background-color: #f7f7f7;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  position: relative;
-}
-
 .axis text {
   font: 10px sans-serif;
 }
-
 .axis path,
 .axis line {
   fill: none;
@@ -38,15 +75,12 @@ body {
   display: none;
 }
 
-label {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
 .bar {
   fill: #eda701;
   fill-opacity: 0.8;
+}
+.bar:hover {
+  fill-opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

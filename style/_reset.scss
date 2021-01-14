@@ -1,3 +1,5 @@
+@use 'variables';
+
 *,
 body,
 ::before,
@@ -8,6 +10,6 @@ body,
 }
 
 a {
-  color: rgb(0, 0, 0);
+  color: variables.$ocher;
   text-decoration: none;
 }

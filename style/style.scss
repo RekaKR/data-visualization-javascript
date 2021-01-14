@@ -1,48 +1,81 @@
-@import "reset";
-@import "variables";
-
-// body {
-//   background-color: #797979;
-//   color: #cfcfcf;
-// }
-// div {
-//   line-height: 15px;
-//   margin-bottom: 3px;
-//   text-align: end;
-// }
-.y > text:nth-child(12) {
-  display: none;
-}
+@use "reset";
+@use "variables" as *;
 
 body {
   width: 400px;
   background-color: $gray;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 400;
   position: relative;
+
+  label {
+    color: $ocher;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 400;
+    font-size: 40px;
+    position: relative;
+    top: 30px;
+    left: 66px;
+
+    input {
+      background-color: none;
+      opacity: 1;
+      position: absolute;
+      top: 16px;
+      left: -30px;
+      transform: scale(2);
+      cursor: pointer;
+      display: block;
+
+      &:before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        background: #FFF;
+        border: 1px solid $ocher;
+        display: block;
+        position: relative;
+      }
+
+      &:checked:after {
+        content: "X";
+        color: $ocher;
+        font-size: 18px;
+        position: absolute;
+        top: calc(50% + 1px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }
 
-.axis text {
-  font: 10px sans-serif;
+.y > text:nth-child(12) {
+  display: none;
 }
 
-.axis path,
-.axis line {
+.axis {
+  text {
+    font: 10px sans-serif;
+  }
+
+  path,
+  line {
   fill: none;
   stroke: $black;
   shape-rendering: crispEdges;
+}
 }
 
 .x.axis path {
   display: none;
 }
 
-label {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
 .bar {
   fill: $ocher;
   fill-opacity: 0.8;
+
+  &:hover {
+    fill-opacity: 1;
+  }
 }
