@@ -1,24 +1,24 @@
 function pageLoaded() {
   let margin = {
-      top: 50,
-      right: 30,
-      bottom: 20,
-      left: 40,
-    },
+    top: 50,
+    right: 30,
+    bottom: 20,
+    left: 40,
+  },
     width = 50000 - margin.left - margin.right,
     height = 950 - margin.top - margin.bottom;
 
-  var formatPercent = d3.format(".0");
+  let formatPercent = d3.format(".0");
 
-  var x = d3.scale.ordinal().rangeRoundBands([0, width], 0.1, 1);
+  let x = d3.scale.ordinal().rangeRoundBands([0, width], 0.1, 1);
 
-  var y = d3.scale.linear().range([height, 0]);
+  let y = d3.scale.linear().range([height, 0]);
 
-  var xAxis = d3.svg.axis().scale(x).orient("bottom");
+  let xAxis = d3.svg.axis().scale(x).orient("bottom");
 
-  var yAxis = d3.svg.axis().scale(y).orient("right").tickFormat(formatPercent);
+  let yAxis = d3.svg.axis().scale(y).orient("right").tickFormat(formatPercent);
 
-  var svg = d3
+  let svg = d3
     .select("body")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -36,6 +36,7 @@ function pageLoaded() {
         return d.letter;
       })
     );
+
     y.domain([
       0,
       d3.max(data, function (d) {
@@ -79,7 +80,7 @@ function pageLoaded() {
 
     d3.select("input").on("change", change);
 
-    var sortTimeout = setTimeout(function () {
+    let sortTimeout = setTimeout(function () {
       d3.select("input").property("checked", true).each(change);
     }, 0);
 
@@ -87,17 +88,17 @@ function pageLoaded() {
       clearTimeout(sortTimeout);
 
       // Copy-on-write since tweens are evaluated after a delay.
-      var x0 = x
+      let x0 = x
         .domain(
           data
             .sort(
               this.checked
                 ? function (a, b) {
-                    return parseInt(b.frequency) - parseInt(a.frequency);
-                  }
+                  return parseInt(b.frequency) - parseInt(a.frequency);
+                }
                 : function (a, b) {
-                    return d3.ascending(parseInt(a.letter), parseInt(b.letter));
-                  }
+                  return d3.ascending(parseInt(a.letter), parseInt(b.letter));
+                }
             )
             .map(function (d) {
               return d.letter;
@@ -109,7 +110,7 @@ function pageLoaded() {
         return x0(a.letter) - x0(b.letter);
       });
 
-      var transition = svg.transition().duration(2),
+      let transition = svg.transition().duration(2),
         delay = function (d, i) {
           return i;
         };
