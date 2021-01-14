@@ -28,19 +28,19 @@ function pageLoaded() {
 
   d3.csv("/CSV/snakes_count_1000_v2.csv", function (error, data) {
     data.forEach(function (d) {
-      d.frequency = +d.frequency;
+      d.gameLength = +d.gameLength;
     });
 
     x.domain(
       data.map(function (d) {
-        return d.letter;
+        return d.gameNumber;
       })
     );
 
     y.domain([
       0,
       d3.max(data, function (d) {
-        return d.frequency;
+        return d.gameLength;
       }),
     ]);
 
@@ -59,7 +59,6 @@ function pageLoaded() {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
 
     svg
       .selectAll(".bar")
@@ -68,14 +67,14 @@ function pageLoaded() {
       .append("rect")
       .attr("class", "bar")
       .attr("x", function (d) {
-        return x(d.letter);
+        return x(d.gameNumber);
       })
       .attr("width", x.rangeBand())
       .attr("y", function (d) {
-        return y(d.frequency);
+        return y(d.gameLength);
       })
       .attr("height", function (d) {
-        return height - y(d.frequency);
+        return height - y(d.gameLength);
       });
 
     d3.select("input").on("change", change);
@@ -94,20 +93,20 @@ function pageLoaded() {
             .sort(
               this.checked
                 ? function (a, b) {
-                  return parseInt(b.frequency) - parseInt(a.frequency);
+                  return parseInt(b.gameLength) - parseInt(a.gameLength);
                 }
                 : function (a, b) {
-                  return d3.ascending(parseInt(a.letter), parseInt(b.letter));
+                  return d3.ascending(parseInt(a.gameNumber), parseInt(b.gameNumber));
                 }
             )
             .map(function (d) {
-              return d.letter;
+              return d.gameNumber;
             })
         )
         .copy();
 
       svg.selectAll(".bar").sort(function (a, b) {
-        return x0(a.letter) - x0(b.letter);
+        return x0(a.gameNumber) - x0(b.gameNumber);
       });
 
       let transition = svg.transition().duration(2),
@@ -119,7 +118,7 @@ function pageLoaded() {
         .selectAll(".bar")
         .delay(delay)
         .attr("x", function (d) {
-          return x0(d.letter);
+          return x0(d.gameNumber);
         });
 
       transition.select(".x.axis").call(xAxis).selectAll("g").delay(delay);
