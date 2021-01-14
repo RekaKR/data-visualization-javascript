@@ -1,0 +1,76 @@
+@use "reset";
+@use "variables" as *;
+
+body {
+  width: 400px;
+  background-color: $gray;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  position: relative;
+
+  label {
+    color: $ocher;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    position: relative;
+    top: 30px;
+    left: 66px;
+
+    input {
+      position: absolute;
+      top: 18px;
+      left: -30px;
+      transform: scale(2);
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        background: $gray;
+        border: 1px solid $ocher;
+        display: block;
+        position: relative;
+      }
+
+      &:checked:after {
+        content: url(/icon.svg);
+        position: absolute;
+        top: calc(50% + 1px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.y > text:nth-child(12) {
+  display: none;
+}
+
+.axis {
+  text {
+    font: 10px;
+  }
+
+  path,
+  line {
+  fill: none;
+  stroke: $black;
+  shape-rendering: crispEdges;
+}
+}
+
+.x.axis path {
+  display: none;
+}
+
+.bar {
+  fill: $ocher;
+  fill-opacity: 0.8;
+
+  &:hover {
+    fill-opacity: 1;
+  }
+}

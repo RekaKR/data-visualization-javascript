@@ -17,73 +17,85 @@ input {
 }
 
 body {
-  width: 400px;
+  width: 100vw;
   background-color: #f7f7f7;
-  font-family: "Montserrat", sans-serif;
-  font-size: 400;
+  overflow-x: hidden;
   position: relative;
 }
-body label {
-  color: #eda701;
+@media (min-width: 1600px) {
+  body {
+    overflow: hidden;
+  }
+}
+body h1 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 400;
-  font-size: 40px;
-  position: relative;
-  top: 30px;
-  left: 66px;
+  font-weight: 400;
+  font-size: 2rem;
 }
-body label input {
-  background-color: none;
-  opacity: 1;
+body p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: #eda701;
+  display: flex;
+  position: fixed;
+  z-index: 2;
+}
+header h1 {
+  margin: auto;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+@media (max-width: 510px) {
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+main {
+  height: calc(100vh - 40px);
+  padding: 5%;
+  padding-top: 80px;
   position: absolute;
-  top: 16px;
-  left: -30px;
-  transform: scale(2);
-  cursor: pointer;
-  display: block;
+  animation: swim 2s ease-out;
 }
-body label input:before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  background: #FFF;
-  border: 1px solid #eda701;
-  display: block;
-  position: relative;
+main div {
+  width: 65%;
+  margin: auto;
+  margin-top: 5%;
 }
-body label input:checked:after {
-  content: url(/icon.svg);
-  font-size: 18px;
-  position: absolute;
-  top: calc(50% + 1px);
-  left: 50%;
-  transform: translate(-50%, -50%);
+main div:first-child p {
+  margin-top: 1em;
+}
+main div:nth-child(2) p {
+  margin-top: -0.5em;
+  font-weight: bold;
+  text-align: center;
 }
 
-.y > text:nth-child(12) {
-  display: none;
+.footer {
+  width: 100%;
+  height: 20px;
+  background-color: #f7f7f7;
+  padding-top: 3%;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.axis text {
-  font: 10px sans-serif;
-}
-.axis path,
-.axis line {
-  fill: none;
-  stroke: black;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.bar {
-  fill: #eda701;
-  fill-opacity: 0.8;
-}
-.bar:hover {
-  fill-opacity: 1;
+@keyframes swim {
+  0% {
+    padding-top: 500px;
+  }
+  100% {
+    padding-top: 80px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
