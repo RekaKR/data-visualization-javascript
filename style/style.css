@@ -17,10 +17,10 @@ a {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  position: relative;
   width: 400px;
   background-color: #f7f7f7;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
 }
 
 .axis text {
@@ -30,7 +30,7 @@ body {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: black;
   shape-rendering: crispEdges;
 }
 
