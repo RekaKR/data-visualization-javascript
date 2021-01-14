@@ -3,9 +3,14 @@
 
 body {
   width: 100vw;
-  height: 100vh;
   background-color: $gray;
+  overflow-x: hidden;
+  position: relative;
  
+  @media (min-width: 1600px) {
+    overflow: hidden;
+  }
+
   h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 400;
@@ -26,6 +31,7 @@ header {
   background-color: $ocher;
   display: flex;
   position: fixed;
+  z-index: 2;
 
   h1 {
     margin: auto;
@@ -59,24 +65,23 @@ main {
 
   div:nth-child(2) {
     p {
-      margin-top: 0em;
+      margin-top: -0.5em;
       text-align: center;
     }
   }
 }
 
+.footer {
+  width: 100%;
+  height: 20px;
+  background-color: $gray;
+  padding-top: 3%;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes page2-animation {
   0% {padding-top: 500px;}
   100% {padding-top: 80px;}
-}
-
-footer {
-  position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translate(-50%);
-
-  p {
-    font-size: 10px;
-  }
 }
