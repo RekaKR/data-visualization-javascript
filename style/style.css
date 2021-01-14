@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  outline: none;
+}
+
 body {
   width: 400px;
   background-color: #f7f7f7;
@@ -48,8 +52,7 @@ body label input:before {
   position: relative;
 }
 body label input:checked:after {
-  content: "X";
-  color: #eda701;
+  content: url(/icon.svg);
   font-size: 18px;
   position: absolute;
   top: calc(50% + 1px);

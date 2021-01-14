@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  outline: none;
+}
+
 body {
   width: 100vw;
   background-color: #f7f7f7;

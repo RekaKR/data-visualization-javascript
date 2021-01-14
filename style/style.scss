@@ -38,8 +38,7 @@ body {
       }
 
       &:checked:after {
-        content: "X";
-        color: $ocher;
+        content: url(/icon.svg);
         font-size: 18px;
         position: absolute;
         top: calc(50% + 1px);
