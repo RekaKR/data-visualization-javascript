@@ -76,7 +76,7 @@ body label input::before {
   position: relative;
 }
 body label input:checked::after {
-  content: url("../icon.svg");
+  content: url("./icon.svg");
   position: absolute;
   top: calc(50% + 1px);
   left: 54.9%;
