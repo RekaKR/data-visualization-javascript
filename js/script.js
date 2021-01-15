@@ -26,7 +26,7 @@ function pageLoaded() {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.csv("/CSV/snakes_count_1000.csv", function (error, data) {
+  d3.csv("../CSV/snakes_count_1000.csv", function (error, data) {
     data.forEach(function (d) {
       d.gameLength = +d.gameLength;
     });
