@@ -53,6 +53,7 @@ function pageLoaded() {
     svg
       .append("g")
       .attr("class", "y axis")
+      .attr('transform', 'translate(' + height / 2.4 + ',0)')
       .call(yAxis)
       .append("text")
       .attr("transform", "rotate(-90)")

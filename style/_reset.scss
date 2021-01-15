@@ -12,8 +12,14 @@ body,
 a {
   color: variables.$ocher;
   text-decoration: none;
+  cursor: pointer;
 }
 
 input {
   outline: none;
+}
+
+p,
+h1 {
+  cursor: context-menu;
 }

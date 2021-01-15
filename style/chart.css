@@ -10,18 +10,45 @@ body,
 a {
   color: #eda701;
   text-decoration: none;
+  cursor: pointer;
 }
 
 input {
   outline: none;
 }
 
+p,
+h1 {
+  cursor: context-menu;
+}
+
+html {
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 body {
-  width: 400px;
   background-color: #f7f7f7;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   position: relative;
+}
+body #sort {
+  position: absolute;
+  top: 80px;
+  left: 28px;
+}
+body #sort:hover + label input {
+  animation: blinker 1.3s steps(5, start) infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.1;
+  }
 }
 body label {
   color: #eda701;
@@ -37,7 +64,7 @@ body label input {
   top: 18px;
   left: -30px;
   transform: scale(2);
-  cursor: pointer;
+  cursor: pointer !important;
 }
 body label input:before {
   content: "";
@@ -52,8 +79,46 @@ body label input:checked:after {
   content: url(/icon.svg);
   position: absolute;
   top: calc(50% + 1px);
-  left: 50%;
+  left: 54.8%;
   transform: translate(-50%, -50%);
+}
+body #container {
+  width: 346px;
+  position: absolute;
+  top: 162px;
+  left: 30px;
+}
+body #container a,
+body #container p {
+  color: black;
+  font-size: 22px;
+  padding-bottom: 42px;
+  display: block;
+}
+body #container a:hover,
+body #container p:hover {
+  font-weight: bold;
+}
+body #container a:hover {
+  color: #eda701;
+}
+body #gn {
+  position: absolute;
+  left: 336px;
+  bottom: 51px;
+  transform: rotate(-90deg);
+}
+body #gn:hover {
+  font-weight: bold;
+}
+body #gl {
+  position: absolute;
+  padding-left: 90px;
+  left: 315px;
+  bottom: 1px;
+}
+body #gl:hover {
+  font-weight: bold;
 }
 
 .y > text:nth-child(12) {
@@ -62,6 +127,9 @@ body label input:checked:after {
 
 .axis text {
   font: 10px;
+}
+.axis text:hover {
+  font-weight: bold;
 }
 .axis path,
 .axis line {

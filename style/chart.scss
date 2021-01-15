@@ -1,12 +1,38 @@
 @use "reset";
 @use "variables" as *;
 
+html {
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 body {
-  width: 400px;
   background-color: $gray;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   position: relative;
+
+  
+  #sort {
+    position: absolute;
+    top: 80px;
+    left: 28px;
+
+    &:hover + label input {
+      animation: blinker 1.3s steps(5,start) infinite;
+    }
+  }
+  
+
+  @keyframes blinker {
+    50% {
+      opacity: 0.1;
+    }
+  }
 
   label {
     color: $ocher;
@@ -22,7 +48,7 @@ body {
       top: 18px;
       left: -30px;
       transform: scale(2);
-      cursor: pointer;
+      cursor: pointer !important;
 
       &:before {
         content: "";
@@ -38,9 +64,54 @@ body {
         content: url(/icon.svg);
         position: absolute;
         top: calc(50% + 1px);
-        left: 50%;
+        left: 54.8%;
         transform: translate(-50%, -50%);
       }
+    }
+  }
+
+  #container {
+    width: 346px;
+    position: absolute;
+    top: 162px;
+    left: 30px;
+
+    a,
+    p {
+      color: black;
+      font-size: 22px;
+      padding-bottom: 42px;
+      display: block;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+
+    a:hover {
+        color: $ocher;
+      }
+  }
+
+  #gn {
+    position: absolute;
+    left: 336px;
+    bottom: 51px;
+    transform: rotate(-90deg);
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  #gl {
+    position: absolute;
+    padding-left: 90px;
+    left: 315px;
+    bottom: 1px;
+    
+    &:hover {
+      font-weight: bold;
     }
   }
 }
@@ -52,6 +123,10 @@ body {
 .axis {
   text {
     font: 10px;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 
   path,
@@ -59,7 +134,7 @@ body {
   fill: none;
   stroke: $black;
   shape-rendering: crispEdges;
-}
+  }
 }
 
 .x.axis path {
