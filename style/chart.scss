@@ -50,7 +50,7 @@ body {
       transform: scale(2);
       cursor: pointer !important;
 
-      &:before {
+      &::before {
         content: "";
         width: 14px;
         height: 14px;
@@ -60,11 +60,11 @@ body {
         position: relative;
       }
 
-      &:checked:after {
+      &:checked::after {
         content: url(/icon.svg);
         position: absolute;
         top: calc(50% + 1px);
-        left: 54.8%;
+        left: 54.9%;
         transform: translate(-50%, -50%);
       }
     }
